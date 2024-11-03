@@ -1,15 +1,17 @@
 const mongoose = require("mongoose");
 const Chat = require("./models/chat.js");
 
-main().then(()=>{
-    console.log("All Chats are Connected");
-}).catch((res)=>{
-    console.log(res);
-})
+// Connect to MongoDB
+main().then(() => {
+    console.log("Connection Successful"); // Log successful connection
+}).catch((err) => {
+    console.error(err); // Log error if connection fails
+});
 
-async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/whatsapp");
+async function main() {
+    await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp'); // Connect to MongoDB database
 }
+
 
 let allChats = [
     {
